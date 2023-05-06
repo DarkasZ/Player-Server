@@ -37,7 +37,7 @@ function onClientRequest(request, response)
         else if(res.player_id === `${id[3]}`) {
             response.write(JSON.stringify({ "code": 1 , "msg": "player collected this rewards" }))
         }
-        //response.write(JSON.stringify(res))
+        //response.write(JSON.stringify(res))/
     }
     else
     {

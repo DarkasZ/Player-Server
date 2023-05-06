@@ -24,17 +24,7 @@ async function onClientRequest(request, response)
     }
     else if(method === `POST` && `/${id[1]}/${id[2]}/` === '/reward/collect/')
     {
-        if("level" < 10){
-            response.write(JSON.stringify({ "code": 2 , "msg": "player cannot collected this rewards" }))
-        }
-        else if("player_id" === 15001){
-            response.write(JSON.stringify({ "code": 1 , "msg": "player collected this rewards" }))
-        }
-        else if("player_id" === undefined)
-        {
-            response.write(JSON.stringify({ "code": 3 , "msg": "player not found" }))
-        }
-
+        
     }
     response.end()
 }
