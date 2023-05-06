@@ -1,17 +1,17 @@
 [
     {
-        "player_id": "15001",
-        "username": "john",
-        "level": 5
+     "player_id": "15001",
+     "username" : "John",
+     "level"    : 5 
     },
     {
         "player_id": "15002",
-        "username": "tony",
-        "level": 9
+        "username" : "Tony",
+        "level"    : 9 
     },
     {
         "player_id": "15003",
-        "username": "kerry",
-        "level": 15
+        "username" : "Kerry",
+        "level"    : 15
     }
 ]

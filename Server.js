@@ -10,6 +10,7 @@ function onClientRequest(request, response)
 {
     let method = request.method
     let requrl = request.url
+    let res = ''
 
     let id = requrl.split('/')
 
@@ -23,19 +24,26 @@ function onClientRequest(request, response)
     }
     else if(method === `POST` && `/${id[1]}/${id[2]}/` === '/player/get/')
     {
-        let res = data.find((item) =>{
+            res = data.find((item) =>{
             if(item.player_id === `${id[3]}`){
                 return item
             }
-            else{
-                response.write( JSON.stringify({'code': 3 , 'msg': 'player not found'}))
-            }
-        })
-        response.write(JSON.stringify({res}))
+            })
+    if(res != undefined)
+    {
+        if(res.level < 10){
+            response.write(JSON.stringify({ "code": 2 , "msg": "player cannot collected this rewards" }))
+        }
+        else if(res.player_id === `${id[3]}`) {
+            response.write(JSON.stringify({ "code": 1 , "msg": "player collected this rewards" }))
+        }
+        //response.write(JSON.stringify(res))
+    }
+    else
+    {
+        response.write( JSON.stringify({'code': 3 , 'msg': 'player not found'}))
+    }
     }
     
     response.end()
-    }
-
-    
-    
+}
